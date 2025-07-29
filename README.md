@@ -2,7 +2,7 @@
 
 This repository contains all materials required to replicate the analysis in our manuscript:  
 **AI-assisted Programming May Decrease the Productivity of Experienced Developers by Increasing Maintenance Burden**  
-Authored by: Blinded for Peer Review 
+**Authors**: Blinded for Peer Review
 
 All data were collected from GitHub.com using the GitHub GraphQL APIs. The replication analysis is conducted entirely in **Stata**.
 
@@ -10,29 +10,32 @@ All data were collected from GitHub.com using the GitHub GraphQL APIs. The repli
 
 ## Contents
 
-- `/Replication Code and Data/`: Stata `.do` files for running the models; Xlsx datasets to reproduce teh results 
-- `/graphs/`: Output graphs and plots
+- `/Replication Code and Data/`: Stata `.do` files to reproduce the results, and `.xlsx` datasets  
+- `/graphs/`: Output graphs and plots  
 - `README.md`: This file  
 
 ---
 
 ## 1. System Requirements
 
-- **Software Dependencies**:  
-  - **Stata 17** or later (tested on Stata/SE 17.0)  
-  - Stata packages (SSC Install) - coefplot, ftools, reghdfe
+- **Software**:  
+  - Stata 17 or later (tested on Stata/SE 17.0)  
+  - Required user-written Stata packages (install via `ssc install`):  
+    - `coefplot`  
+    - `ftools`  
+    - `reghdfe`  
 
-- **Hardware Requirements**:  
+- **Hardware**:  
   - Standard desktop or laptop with at least 8GB RAM  
-  - No non-standard hardware needed  
+  - No non-standard hardware required  
 
 ---
 
 ## 2. Installation Guide
 
-1. Clone or download this repository.
-2. Open the `.do` files using Stata 17 or later.
-3. Make sure the data and the do files are in the same folder
+1. Clone or download this repository.  
+2. Ensure that the `.do` files and the dataset files are in the same directory.  
+3. Open the `.do` files using Stata 17 or later.  
 
 > **Estimated setup time**: ~5 minutes on a standard desktop computer.
 
@@ -40,15 +43,24 @@ All data were collected from GitHub.com using the GitHub GraphQL APIs. The repli
 
 ## 3. Reproduction Instructions
 
-### Step 1: Open the Do Files  
-The do files comprise all the code to reproduce the results. Open the do file in stat and 'run' it. The folder contains multiple do files to reproduce specific tables from the manuscript.
+### Step 1: Open the `.do` Files  
+The folder contains multiple `.do` files, each corresponding to a specific table or result in the manuscript. Open any of these files in Stata to reproduce the associated analysis.
 
-### Step 2: Run Analysis  
-- Open `xxx.do` files in Stata. We have numbered them so that you can replicate the results as teh tables appear i nthe manuscript.   
-- Running the script will:
-  - Load and prepare the data  
-  - Perform the main Difference-in-Differences analyses  
-  - Generate all tables and figures reported in the manuscript
+### Step 2: Run the Analysis  
+- The `.do` files are numbered to match the order in which results appear in the manuscript.  
+- Running each script will:  
+  - Load and prepare the relevant data  
+  - Run the appropriate model (Difference-in-Differences and supporting analyses)  
+  - Output tables and/or figures
 
-> **Expected output**: All tables and figures is dispalyed in the manuscript
-> **Expected runtime**: ~5–10 minutes on a standard desktop  
+> **Expected output**: Replication of tables and figures presented in the manuscript  
+> **Expected runtime**: ~5–10 minutes on a standard desktop
+
+---
+
+## Notes
+
+- All Stata output appears in the Results window or is saved to the `/graphs/` folder if graphical.  
+- We recommend running the scripts in sequence for a complete replication.
+
+---
