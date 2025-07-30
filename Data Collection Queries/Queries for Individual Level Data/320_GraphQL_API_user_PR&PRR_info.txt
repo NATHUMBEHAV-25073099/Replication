@@ -1,0 +1,91 @@
+Where to test GitHub API:
+https://docs.github.com/en/graphql/overview/explorer
+
+
+Example API query for user_PR_data:
+
+{
+  user(login: "lszomoru") {
+    contributionsCollection(
+      from: "2022-01-01T00:00:00Z"
+      to: "2022-12-31T11:59:59Z"
+    ) {
+      pullRequestContributions(first: 10) {
+        totalCount
+        pageInfo {
+          hasNextPage
+          startCursor
+          endCursor
+        }
+        edges {
+          node {
+            pullRequest {
+              id
+              createdAt
+              closedAt
+              state
+              changedFiles
+              totalCommentsCount
+              repository {
+                nameWithOwner
+              }
+              participants(first: 1) {
+                totalCount
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+Example API query for user_PRR_data:
+
+{
+  user(login: "lszomoru") {
+    contributionsCollection(
+      from: "2022-01-01T00:00:00Z"
+      to: "2022-12-31T11:59:59Z"
+    ) {
+      pullRequestReviewContributions(first: 5) {
+        totalCount
+        pageInfo {
+          hasNextPage
+          startCursor
+          endCursor
+        }
+        edges {
+          node {
+            pullRequestReview {
+              id
+              createdAt
+              includesCreatedEdit
+              comments {
+                totalCount
+              }
+              userContentEdits {
+                totalCount
+              }
+              pullRequest {
+                number
+                id
+                createdAt
+                closedAt
+                author {
+                  login
+                }
+                state
+                baseRepository {
+                  id
+                  nameWithOwner
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
