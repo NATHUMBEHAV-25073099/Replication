@@ -57,32 +57,26 @@ The folder contains multiple `.do` files, each corresponding to a specific table
 > **Expected runtime**: ~5–10 minutes on a standard desktop
 ---
 ## 4. Replication Instructions - Data Collection Using GitHub APIs
-1. **Generate a GitHub Personal Access Token**  
+### Step 1:Generate a GitHub Personal Access Token 
    - Visit: [https://github.com/settings/tokens](https://github.com/settings/tokens)  
    - Create a token with **`repo`** and **`read:org`** scopes (no write access needed).
 
-2. **Install a GraphQL Client** (optional)  
-   - Use tools like [Insomnia](https://insomnia.rest/), [Postman](https://www.postman.com/), or command-line tools like `curl`.
-
-3. **Access the Query Files**  
+### Step 2: Access the Query Files  
    - Navigate to the folder: [`/Data Collection Queries/`](https://github.com/NATHUMBEHAV-25073099/Replication/tree/main/Data%20Collection%20Queries)  
    - Select the relevant `.graphql` file based on the data type (e.g., contributors, issues, commits).
 
-4. **Use the GitHub GraphQL API Endpoint**  
+### Step 3: Use the GitHub GraphQL API Endpoint  
    - Endpoint: `https://api.github.com/graphql`
-
-5. **Submit Queries**  
    - Paste the query into your GraphQL client or use a script to send the request.  
    - Set the HTTP header:  
      ```
      Authorization: Bearer YOUR_TOKEN
      ```
-
-6. **Handle Pagination**  
+### Step 4: Handle Pagination
    - Most queries use cursor-based pagination (`pageInfo`, `endCursor`).  
    - Update the `after` parameter to loop through pages and collect full results.
 
-7. **Store Results**  
+### Step 5: Store Results  
    - Save responses in JSON format.  
    - Convert and structure as needed (e.g., CSV or `.dta` for analysis in Stata).
 
