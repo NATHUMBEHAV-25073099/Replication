@@ -1,0 +1,46 @@
+Where to test GitHub API:
+https://docs.github.com/en/graphql/overview/explorer
+
+
+Example API query for pull_requests_data:
+
+{
+  repository(owner: "microsoft", name: ".github") {
+    name
+    pullRequests(first: 100) {
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+      totalCount
+      nodes {
+        number
+        createdAt
+        closedAt
+        mergedAt
+        author {
+          login
+        }
+        commits(first: 100) {
+          totalCount
+          nodes {
+            commit {
+              committedDate
+            }
+          }
+        }
+        comments(first: 100) {
+          totalCount
+          nodes {
+            createdAt
+            author {
+              resourcePath
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
